@@ -127,7 +127,7 @@ export default {
 
 <style scoped>
 .mapping-target {
-  padding: 12px;
+  padding: 16px;
   background: var(--td-bg-color-container);
   border: 1px solid var(--td-component-border);
   border-radius: var(--td-radius-default);
@@ -136,24 +136,25 @@ export default {
 
 .mapping-target:hover {
   border-color: var(--td-brand-color-light);
+  box-shadow: 0 2px 8px rgba(0, 82, 217, 0.08);
 }
 
 .target-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .target-label {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--td-text-color-primary);
 }
 
 .drop-zone {
-  min-height: 64px;
-  padding: 8px;
+  min-height: 100px;
+  padding: 12px;
   background: var(--td-bg-color-page);
   border: 2px dashed var(--td-component-border);
   border-radius: var(--td-radius-default);
@@ -181,29 +182,30 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 24px;
   color: var(--td-text-color-placeholder);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .placeholder-icon {
-  font-size: 28px;
-  margin-bottom: 6px;
+  font-size: 36px;
+  margin-bottom: 8px;
 }
 
 .mapped-field {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px;
-  margin-bottom: 6px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
   background: var(--td-brand-color-light);
   border: 1px solid var(--td-brand-color);
   border-radius: var(--td-radius-default);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--td-brand-color);
   font-weight: 500;
   transition: all 0.2s;
+  cursor: move;
 }
 
 .mapped-field:last-child {
@@ -213,11 +215,12 @@ export default {
 .mapped-field:hover {
   background: var(--td-brand-color);
   color: #fff;
+  transform: translateX(2px);
 }
 
 .remove-icon {
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   opacity: 0.7;
   transition: opacity 0.2s;
 }
@@ -227,6 +230,6 @@ export default {
 }
 
 .error-alert {
-  margin-top: 8px;
+  margin-top: 12px;
 }
 </style>

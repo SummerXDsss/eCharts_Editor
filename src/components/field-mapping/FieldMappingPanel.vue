@@ -67,32 +67,34 @@ export default {
 
 <style scoped>
 .field-mapping-panel {
-  padding: 16px;
+  padding: 20px;
   border-bottom: 1px solid var(--td-component-border);
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  min-height: 400px;
 }
 
 .panel-header {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--td-text-color-primary);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .panel-header :deep(.t-icon) {
-  font-size: 18px;
+  font-size: 20px;
   color: var(--td-brand-color);
 }
 
 .mapping-content {
   flex: 1;
   overflow: auto;
+  min-height: 0;
 }
 
 .empty-state {
@@ -100,13 +102,13 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 48px 20px;
+  padding: 60px 20px;
   color: var(--td-text-color-placeholder);
 }
 
 .empty-icon {
-  font-size: 64px;
-  margin-bottom: 12px;
+  font-size: 72px;
+  margin-bottom: 16px;
   color: var(--td-text-color-disabled);
 }
 
@@ -117,23 +119,26 @@ export default {
 .mapping-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
 .section-title {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--td-text-color-secondary);
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--td-brand-color);
 }
 
 .fields-section {
-  padding-bottom: 16px;
+  padding-bottom: 20px;
   border-bottom: 1px solid var(--td-component-border);
 }
 
 .targets-section {
   flex: 1;
+  min-height: 0;
 }
 
 .empty-hint {
@@ -141,18 +146,18 @@ export default {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 24px;
+  padding: 32px;
   color: var(--td-text-color-placeholder);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .empty-hint :deep(.t-icon) {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .mapping-targets {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 </style>

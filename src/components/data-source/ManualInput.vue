@@ -25,7 +25,16 @@
         size="small"
         max-height="400"
         row-key="index"
+        editable-cell-state="true"
       >
+        <template v-for="col in columns" :slot="col" slot-scope="{ row, rowIndex }">
+          <t-input
+            :key="col"
+            v-model="tableData[rowIndex][col]"
+            placeholder="输入值"
+            size="small"
+          />
+        </template>
         <template #operation="{ rowIndex }">
           <t-button
             theme="danger"
@@ -66,16 +75,7 @@ export default {
       const cols = this.columns.map(col => ({
         colKey: col,
         title: col,
-        edit: {
-          component: 'input',
-          props: {
-            clearable: true,
-            placeholder: '输入值'
-          },
-          on: (editContext) => {
-            this.tableData[editContext.rowIndex][col] = editContext.value
-          }
-        }
+        width: 150
       }))
 
       cols.push({
@@ -154,5 +154,13 @@ export default {
 
 .table-container {
   overflow: auto;
+}
+
+.table-container :deep(.t-table) {
+  min-width: 100%;
+}
+
+.table-container :deep(.t-input) {
+  width: 100%;
 }
 </style>

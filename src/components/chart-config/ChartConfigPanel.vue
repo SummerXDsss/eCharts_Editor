@@ -80,7 +80,7 @@ export default {
 
 <style scoped>
 .chart-config-panel {
-  padding: 16px;
+  padding: 20px;
   border-bottom: 1px solid var(--td-component-border);
 }
 
@@ -88,19 +88,32 @@ export default {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--td-text-color-primary);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .panel-header :deep(.t-icon) {
-  font-size: 18px;
+  font-size: 20px;
   color: var(--td-brand-color);
 }
 
 .config-content {
-  max-height: 400px;
+  max-height: 500px;
   overflow-y: auto;
+}
+
+.config-content :deep(.t-form-item) {
+  margin-bottom: 20px;
+}
+
+.config-content :deep(.t-input) {
+  width: 100%;
+}
+
+.config-content :deep(.t-form__label) {
+  font-size: 14px;
+  font-weight: 500;
 }
 </style>

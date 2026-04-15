@@ -56,20 +56,20 @@ export default {
 
 <style scoped>
 .data-field-list {
-  min-height: 100px;
+  min-height: 120px;
 }
 
 .field-items {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .field-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
+  gap: 12px;
+  padding: 12px 14px;
   background: var(--td-bg-color-container);
   border: 1px solid var(--td-component-border);
   border-radius: var(--td-radius-default);
@@ -86,15 +86,18 @@ export default {
 
 .drag-handle {
   color: var(--td-text-color-placeholder);
-  font-size: 16px;
+  font-size: 18px;
   flex-shrink: 0;
 }
 
 .field-name {
   flex: 1;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--td-text-color-primary);
   font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .sortable-ghost {
