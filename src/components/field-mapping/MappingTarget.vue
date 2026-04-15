@@ -72,9 +72,17 @@ export default {
         if (!val) {
           this.localMappedFields = []
         } else if (Array.isArray(val)) {
-          this.localMappedFields = val
+          // val 是字段名数组，需要转换为字段对象数组
+          this.localMappedFields = val.map(name => ({
+            id: Date.now() + Math.random(),
+            name: name
+          }))
         } else {
-          this.localMappedFields = [val]
+          // val 是单个字段名，转换为字段对象
+          this.localMappedFields = [{
+            id: Date.now() + Math.random(),
+            name: val
+          }]
         }
       },
       immediate: true
@@ -82,6 +90,7 @@ export default {
   },
   methods: {
     canPut(to, from, dragEl, event) {
+      // 如果不允许多个字段，且已经有字段了，阻止放入
       if (!this.rule.multiple && this.localMappedFields.length >= 1) {
         return false
       }
@@ -90,7 +99,16 @@ export default {
     handleChange(evt) {
       if (evt.added) {
         const field = evt.added.element
-        const validation = validateFieldMapping(field, this.rule, this.localMappedFields)
+
+        // 如果不允许多个字段，检查是否超过限制
+        if (!this.rule.multiple && this.localMappedFields.length > 1) {
+          // 移除刚添加的字段
+          this.localMappedFields.splice(evt.added.newIndex, 1)
+          this.$message.warning('该位置只能映射一个字段')
+          return
+        }
+
+        const validation = validateFieldMapping(field, this.rule, [])
 
         if (!validation.valid) {
           this.error = validation.error
@@ -106,6 +124,7 @@ export default {
     },
     removeField(field) {
       this.localMappedFields = this.localMappedFields.filter(f => f.id !== field.id)
+      this.error = ''
       this.updateMapping()
     },
     updateMapping() {

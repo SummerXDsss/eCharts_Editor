@@ -29,7 +29,7 @@ import draggable from 'vuedraggable'
 export default {
   name: 'DataFieldList',
   components: {
-    DragIcon,
+    'drag-icon': DragIcon,
     draggable
   },
   props: {
